@@ -1,0 +1,17 @@
+[package]
+name = "eddn_indexer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.80"
+chrono = "0.4.34"
+html5ever = "0.22"
+rayon = "1.8.1"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+serde_json = "1.0.113"
+soup = "0.5.1"
+threadpool = "1.8.1"
+tokio = { version = "1.36.0", features = ["fs", "full"] }
