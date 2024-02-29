@@ -7,30 +7,30 @@ use std::rc::Rc;
 
 use html5ever::rcdom::Node;
 use reqwest;
+use num_cpus;
 use serde_json::{json, to_writer_pretty, Value};
 use soup::prelude::*;
 use chrono::prelude::*;
-use chrono::TimeDelta;
 
-fn parse_url(td: &Rc<Node>, base_url: &str) -> String {
+fn parse_url(td: &Rc<Node>, base_url: &str) -> Option<String> {
     if td.text() != "None" {
         let a = td.tag("a").find().expect("None");
         if a.text() != "None" {
             let url = a.get("href").expect("None");
             if url != "None" {
-                return format!("{}{}", base_url, url);
+                return Some(format!("{}{}", base_url, url));
             }
-            return "None".to_string();
+            return None;
         }
-        return "None".to_string();
+        return None;
     }
-    return "None".to_string();
+    return None;
 }
 
 // Collects two lists: a list of files in the current directory and a list of directories
 fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
-    // Basically a const but I cannot define a constant using a function call like this...
-    let update_17 = NaiveDate::parse_from_str("2023-Oct-15 12:00:00", "%Y-%b-%d %H:%M:%S").unwrap();
+    // Basically a const but I cannot figure out a better way to do this...
+    let update_17 = NaiveDate::from_ymd_opt(2023, 10, 15).unwrap();
 
     let res = reqwest::blocking::get(url).unwrap();
     let html = res.text().unwrap();
@@ -42,30 +42,28 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
     let mut directories = Vec::new();
 
     for tr in trs {
-        // Get the file name from the table row
-        let file_name = tr.class("n").find().expect("None");
+        // Get the info about the file
+        let file_name = tr.class("n").find().expect("File name attribute was not found");
+        let file_type = tr.class("t").find().expect("File type attribute was not found");
+        let file_size = tr.class("s").find().expect("File size attribute was not found");
+        let file_modified = tr.class("m").find().expect("File modified attribute was not found");
 
-        // Skip the table header and "parent directory" items
+        // Skip table headers and "parent directory" items
         if file_name.text() == "Name" || file_name.text() == "../" {
             continue;
         }
 
-        // Get other file info
-        let file_modified = tr.class("m").find().expect("None");
-        let file_type = tr.class("t").find().expect("None");
-        let file_size = tr.class("s").find().expect("None");
-        
-        // Skip invalid entries
-        if file_modified.text() != "None" {
-            // Make a NaiveDate from the file modified info
-            let file_date = NaiveDate::parse_from_str(file_modified.text().as_str(), "%Y-%b-%d %H:%M:%S").unwrap();
+        // Make a NaiveDate from the file modified info
+        let file_date = NaiveDate::parse_from_str(file_modified.text().as_str(), "%Y-%b-%d %H:%M:%S").unwrap();
 
-            // Compare the file's creation date to the update 17 release date, if its newer than that update we want it
-            if (file_date - update_17) > TimeDelta::new(0, 0).expect("Error when making timedelta") {
-                // Parse the url from the file_name Node
-                let url = parse_url(&file_name, url);
+        // Compare the file's creation date to the update 17 release date, if its newer than that update we want it
+        if helpers::date_is_after(file_date, update_17) {
 
-                if url != "None" {
+            // Parse the url from the file_name Node
+            let parsed_url = parse_url(&file_name, url);
+
+            match parsed_url {
+                Some(url) => {
                     if file_type.text() == "Directory" {
                         if file_name.text() != "../" {
                             // Add the next directory's URL to the list to be searched if its not the parent dir
@@ -80,24 +78,25 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
                             "file_modified": file_modified.text(),
                             "url": url
                         });
-
+    
                         // Push a file blob into the file vector
                         files.push(data);
                     }
-                }
+                },
+                None => {}
             }
         }
     }
     return (files, directories);
 }
 
-// Crawls a directory recursively and collects all files in current and sub directories
 fn crawl_directory(base_url: &str) -> Vec<Value> {
     println!("Crawling URL: {}", base_url);
+    // Collect all files in a directory
     let (mut files, directories) = find_files(base_url);
-    for directory in directories {
-        files.extend(crawl_directory(&directory))
-    }
+    // Run a recursive scan of sub directories and collect all files
+    directories.iter().for_each(|dir| files.extend(crawl_directory(&dir)));
+
     println!("Indexed {} files", files.len());
     return files;
 }
@@ -105,8 +104,6 @@ fn crawl_directory(base_url: &str) -> Vec<Value> {
 fn main() -> std::io::Result<()> {
     // The base url to start our recursive crawl
     let base_url = "https://edgalaxydata.space/EDDN/";
-    // The timestamp for update 17 which added the SignalType attribute to FSS Signal Logs
-    let update_17 = NaiveDate::parse_from_str("2023-Oct-15 12:00:00", "%Y-%b-%d %H:%M:%S").unwrap();
 
     // Start crawling the directories
     let files: Vec<Value> = crawl_directory(base_url);
@@ -141,14 +138,10 @@ fn main() -> std::io::Result<()> {
 
     let signal_files: Vec<&Value>= files.iter()
                                         .filter(|x| x["file_name"].to_string().contains("FSSSignalDiscovered"))
-                                        .filter(|y| {
-                                            (NaiveDate::parse_from_str(y["file_modified"].as_str().unwrap(), "%Y-%b-%d %H:%M:%S").unwrap() - update_17) > TimeDelta::new(0, 0).expect("Error when making timedelta")
-                                        })
                                         .collect();
 
     let mut total_size: f64 = 0.0;
     signal_files.iter().for_each(|x| total_size += x["file_size"].as_f64().unwrap());
-
 
     println!("Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ", signal_files.len(), helpers::bytes_value_to_size_string(total_size));
     let mut input = String::new();
@@ -158,8 +151,9 @@ fn main() -> std::io::Result<()> {
     let input = input.trim();
     match input {
         "Y" | "y" => {
-            // The number of threads to use in the download. Defaults to 4
-            let num_workers = 10;
+            // The number of threads to use in the download. Defaults to: num_cpus - 1 
+            // (though if you have any more than a few cores and slow internet, you may want to lower this)
+            let num_workers = num_cpus::get() - 1;
             println!("Downloading files to disk with {} threads...", num_workers);
 
             // Initialize the two file info vectors

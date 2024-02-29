@@ -1,3 +1,5 @@
+use chrono::{NaiveDate, TimeDelta};
+
 const SIZE_STRINGS: [&str; 4] = ["KB", "MB", "GB", "TB"];
 
 pub fn string_to_bytes_value(string: String) -> f64 {
@@ -31,4 +33,8 @@ pub fn bytes_value_to_size_string(bytes_value: f64) -> String {
     ret.push_str(&format!("{:.5}", val));
     ret.push_str(SIZE_STRINGS[i]);
     return ret;
+}
+
+pub fn date_is_after(to_check: NaiveDate, reference: NaiveDate) -> bool {
+    return (to_check - reference) > TimeDelta::new(0, 0).unwrap();
 }
