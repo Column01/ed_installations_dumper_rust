@@ -1,459 +1,319 @@
 {
   "files": [
     {
-      "file_modified": "2024-Feb-27 23:59:08",
-      "file_name": "CAPI.FCMaterials-2024-02-27.jsonl",
-      "file_size": 1677721.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/CAPI.FCMaterials-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-28 00:48:20",
+      "file_modified": "2024-Feb-28 23:58:52",
       "file_name": "CAPI.FCMaterials-2024-02-28.jsonl",
-      "file_size": 40345.6,
+      "file_size": 1782579.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/CAPI.FCMaterials-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:53",
-      "file_name": "Commodity-2024-02-27.jsonl",
-      "file_size": 367630745.6,
+      "file_modified": "2024-Feb-29 00:15:55",
+      "file_name": "CAPI.FCMaterials-2024-02-29.jsonl",
+      "file_size": 6656.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Commodity-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/CAPI.FCMaterials-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:58",
+      "file_modified": "2024-Feb-28 23:59:59",
       "file_name": "Commodity-2024-02-28.jsonl",
-      "file_size": 11429478.4,
+      "file_size": 415865241.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Commodity-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:19",
-      "file_name": "Journal.ApproachSettlement-2024-02-27.jsonl",
-      "file_size": 3040870.4,
+      "file_modified": "2024-Feb-29 00:16:04",
+      "file_name": "Commodity-2024-02-29.jsonl",
+      "file_size": 4718592.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.ApproachSettlement-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Commodity-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:46:39",
+      "file_modified": "2024-Feb-28 23:59:50",
       "file_name": "Journal.ApproachSettlement-2024-02-28.jsonl",
-      "file_size": 106598.4,
+      "file_size": 4194304.0,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.ApproachSettlement-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:58:02",
-      "file_name": "Journal.CarrierJump-2024-02-27.jsonl",
-      "file_size": 1363148.8,
+      "file_modified": "2024-Feb-29 00:16:06",
+      "file_name": "Journal.ApproachSettlement-2024-02-29.jsonl",
+      "file_size": 59494.4,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.CarrierJump-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.ApproachSettlement-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:12",
+      "file_modified": "2024-Feb-28 23:59:15",
       "file_name": "Journal.CarrierJump-2024-02-28.jsonl",
-      "file_size": 55603.2,
+      "file_size": 1258291.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.CarrierJump-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:59",
-      "file_name": "Journal.CodexEntry-2024-02-27.jsonl",
-      "file_size": 5033164.8,
+      "file_modified": "2024-Feb-29 00:15:11",
+      "file_name": "Journal.CarrierJump-2024-02-29.jsonl",
+      "file_size": 7270.4,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.CodexEntry-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.CarrierJump-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:57",
+      "file_modified": "2024-Feb-28 23:59:56",
       "file_name": "Journal.CodexEntry-2024-02-28.jsonl",
-      "file_size": 164659.2,
+      "file_size": 5138022.4,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.CodexEntry-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:53",
-      "file_name": "Journal.Docked-2024-02-27.jsonl",
-      "file_size": 27577548.8,
+      "file_modified": "2024-Feb-29 00:15:45",
+      "file_name": "Journal.CodexEntry-2024-02-29.jsonl",
+      "file_size": 66048.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.Docked-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.CodexEntry-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:56",
+      "file_modified": "2024-Feb-28 23:59:59",
       "file_name": "Journal.Docked-2024-02-28.jsonl",
-      "file_size": 991641.6,
+      "file_size": 30828134.4,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.Docked-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:51:05",
-      "file_name": "Journal.DockingDenied-2024-02-27.jsonl",
-      "file_size": 240025.6,
+      "file_modified": "2024-Feb-29 00:16:06",
+      "file_name": "Journal.Docked-2024-02-29.jsonl",
+      "file_size": 406220.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.DockingDenied-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.Docked-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:46:18",
+      "file_modified": "2024-Feb-28 23:57:38",
       "file_name": "Journal.DockingDenied-2024-02-28.jsonl",
-      "file_size": 8294.4,
+      "file_size": 380825.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.DockingDenied-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:58:32",
-      "file_name": "Journal.DockingGranted-2024-02-27.jsonl",
-      "file_size": 1782579.2,
+      "file_modified": "2024-Feb-29 00:09:16",
+      "file_name": "Journal.DockingDenied-2024-02-29.jsonl",
+      "file_size": 2560.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.DockingGranted-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.DockingDenied-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:37",
+      "file_modified": "2024-Feb-28 23:59:50",
       "file_name": "Journal.DockingGranted-2024-02-28.jsonl",
-      "file_size": 79155.2,
+      "file_size": 2726297.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.DockingGranted-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:37:12",
-      "file_name": "Journal.FCMaterials-2024-02-27.jsonl",
-      "file_size": 773017.6,
+      "file_modified": "2024-Feb-29 00:15:43",
+      "file_name": "Journal.DockingGranted-2024-02-29.jsonl",
+      "file_size": 42700.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FCMaterials-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.DockingGranted-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:37:52",
+      "file_modified": "2024-Feb-28 23:53:38",
       "file_name": "Journal.FCMaterials-2024-02-28.jsonl",
-      "file_size": 3174.4,
+      "file_size": 852172.8,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FCMaterials-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:58",
-      "file_name": "Journal.FSDJump-2024-02-27.jsonl",
-      "file_size": 97517568.0,
+      "file_modified": "2024-Feb-29 00:01:28",
+      "file_name": "Journal.FCMaterials-2024-02-29.jsonl",
+      "file_size": 1433.6,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FSDJump-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FCMaterials-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:57",
+      "file_modified": "2024-Feb-28 23:59:56",
       "file_name": "Journal.FSDJump-2024-02-28.jsonl",
-      "file_size": 3460300.8,
+      "file_size": 109785907.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FSDJump-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:57",
-      "file_name": "Journal.FSSAllBodiesFound-2024-02-27.jsonl",
-      "file_size": 12058624.0,
+      "file_modified": "2024-Feb-29 00:16:06",
+      "file_name": "Journal.FSDJump-2024-02-29.jsonl",
+      "file_size": 1258291.2,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FSSAllBodiesFound-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FSDJump-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:57",
+      "file_modified": "2024-Feb-28 23:59:59",
       "file_name": "Journal.FSSAllBodiesFound-2024-02-28.jsonl",
-      "file_size": 379187.2,
+      "file_size": 13212057.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FSSAllBodiesFound-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:58",
-      "file_name": "Journal.FSSBodySignals-2024-02-27.jsonl",
-      "file_size": 7549747.2,
+      "file_modified": "2024-Feb-29 00:16:01",
+      "file_name": "Journal.FSSAllBodiesFound-2024-02-29.jsonl",
+      "file_size": 116019.2,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FSSBodySignals-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FSSAllBodiesFound-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:58",
+      "file_modified": "2024-Feb-28 23:59:52",
       "file_name": "Journal.FSSBodySignals-2024-02-28.jsonl",
-      "file_size": 274944.0,
+      "file_size": 9227468.8,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FSSBodySignals-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:59",
-      "file_name": "Journal.FSSDiscoveryScan-2024-02-27.jsonl",
-      "file_size": 23068672.0,
+      "file_modified": "2024-Feb-29 00:16:05",
+      "file_name": "Journal.FSSBodySignals-2024-02-29.jsonl",
+      "file_size": 68812.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FSSDiscoveryScan-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FSSBodySignals-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:57",
+      "file_modified": "2024-Feb-28 23:59:51",
       "file_name": "Journal.FSSDiscoveryScan-2024-02-28.jsonl",
-      "file_size": 749875.2,
+      "file_size": 24851251.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FSSDiscoveryScan-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:57",
-      "file_name": "Journal.FSSSignalDiscovered-2024-02-27.jsonl",
-      "file_size": 201116876.8,
+      "file_modified": "2024-Feb-29 00:16:06",
+      "file_name": "Journal.FSSDiscoveryScan-2024-02-29.jsonl",
+      "file_size": 272588.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.FSSSignalDiscovered-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FSSDiscoveryScan-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:58",
+      "file_modified": "2024-Feb-28 23:59:53",
       "file_name": "Journal.FSSSignalDiscovered-2024-02-28.jsonl",
-      "file_size": 7340032.0,
+      "file_size": 231420723.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.FSSSignalDiscovered-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:59",
-      "file_name": "Journal.Location-2024-02-27.jsonl",
-      "file_size": 30932992.0,
+      "file_modified": "2024-Feb-29 00:16:05",
+      "file_name": "Journal.FSSSignalDiscovered-2024-02-29.jsonl",
+      "file_size": 2831155.2,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.Location-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.FSSSignalDiscovered-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:58",
+      "file_modified": "2024-Feb-28 23:59:52",
       "file_name": "Journal.Location-2024-02-28.jsonl",
-      "file_size": 943718.4,
+      "file_size": 34078720.0,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.Location-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:34",
-      "file_name": "Journal.NavBeaconScan-2024-02-27.jsonl",
-      "file_size": 693555.2,
+      "file_modified": "2024-Feb-29 00:16:07",
+      "file_name": "Journal.Location-2024-02-29.jsonl",
+      "file_size": 378060.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.NavBeaconScan-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.Location-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:46:29",
+      "file_modified": "2024-Feb-28 23:58:40",
       "file_name": "Journal.NavBeaconScan-2024-02-28.jsonl",
-      "file_size": 19763.2,
+      "file_size": 803532.8,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.NavBeaconScan-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:56",
-      "file_name": "Journal.NavRoute-2024-02-27.jsonl",
-      "file_size": 41838182.4,
+      "file_modified": "2024-Feb-29 00:15:24",
+      "file_name": "Journal.NavBeaconScan-2024-02-29.jsonl",
+      "file_size": 10137.6,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.NavRoute-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.NavBeaconScan-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:53",
+      "file_modified": "2024-Feb-28 23:59:57",
       "file_name": "Journal.NavRoute-2024-02-28.jsonl",
-      "file_size": 1677721.6,
+      "file_size": 45613056.0,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.NavRoute-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:56",
-      "file_name": "Journal.SAASignalsFound-2024-02-27.jsonl",
-      "file_size": 7130316.8,
+      "file_modified": "2024-Feb-29 00:16:07",
+      "file_name": "Journal.NavRoute-2024-02-29.jsonl",
+      "file_size": 442675.2,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.SAASignalsFound-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.NavRoute-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:49",
+      "file_modified": "2024-Feb-28 23:59:56",
       "file_name": "Journal.SAASignalsFound-2024-02-28.jsonl",
-      "file_size": 226304.0,
+      "file_size": 7549747.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.SAASignalsFound-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:59",
-      "file_name": "Journal.Scan-2024-02-27.jsonl",
-      "file_size": 438199910.4,
+      "file_modified": "2024-Feb-29 00:16:02",
+      "file_name": "Journal.SAASignalsFound-2024-02-29.jsonl",
+      "file_size": 69120.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.Scan-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.SAASignalsFound-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:58",
+      "file_modified": "2024-Feb-28 23:59:59",
       "file_name": "Journal.Scan-2024-02-28.jsonl",
-      "file_size": 12687769.6,
+      "file_size": 481401241.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.Scan-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:59",
-      "file_name": "Journal.ScanBaryCentre-2024-02-27.jsonl",
-      "file_size": 16672358.4,
+      "file_modified": "2024-Feb-29 00:16:07",
+      "file_name": "Journal.Scan-2024-02-29.jsonl",
+      "file_size": 3879731.2,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Journal.ScanBaryCentre-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.Scan-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:56",
+      "file_modified": "2024-Feb-28 23:59:56",
       "file_name": "Journal.ScanBaryCentre-2024-02-28.jsonl",
-      "file_size": 507392.0,
+      "file_size": 17930649.6,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Journal.ScanBaryCentre-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:54",
-      "file_name": "Outfitting-2024-02-27.jsonl",
-      "file_size": 183186227.2,
+      "file_modified": "2024-Feb-29 00:16:03",
+      "file_name": "Journal.ScanBaryCentre-2024-02-29.jsonl",
+      "file_size": 154624.0,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Outfitting-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Journal.ScanBaryCentre-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:52",
+      "file_modified": "2024-Feb-28 23:59:55",
       "file_name": "Outfitting-2024-02-28.jsonl",
-      "file_size": 6291456.0,
+      "file_size": 192099123.2,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Outfitting-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 23:59:55",
-      "file_name": "Shipyard-2024-02-27.jsonl",
-      "file_size": 5138022.4,
+      "file_modified": "2024-Feb-29 00:16:03",
+      "file_name": "Outfitting-2024-02-29.jsonl",
+      "file_size": 2726297.6,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Shipyard-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Outfitting-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-28 00:48:52",
+      "file_modified": "2024-Feb-28 23:59:55",
       "file_name": "Shipyard-2024-02-28.jsonl",
-      "file_size": 167321.6,
+      "file_size": 5557452.8,
       "file_type": "application/octet-stream",
       "url": "https://edgalaxydata.space/EDDN/Shipyard-2024-02-28.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 21:36:28",
-      "file_name": "Test-Commodity-2024-02-27.jsonl",
-      "file_size": 59904.0,
+      "file_modified": "2024-Feb-29 00:16:03",
+      "file_name": "Shipyard-2024-02-29.jsonl",
+      "file_size": 68198.4,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Commodity-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Shipyard-2024-02-29.jsonl"
     },
     {
-      "file_modified": "2024-Feb-27 21:42:20",
-      "file_name": "Test-Journal.ApproachSettlement-2024-02-27.jsonl",
-      "file_size": 614.4,
+      "file_modified": "2024-Feb-28 19:55:36",
+      "file_name": "Test-Outfitting-2024-02-28.jsonl",
+      "file_size": 124108.8,
       "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.ApproachSettlement-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:27",
-      "file_name": "Test-Journal.CarrierJump-2024-02-27.jsonl",
-      "file_size": 3379.2,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.CarrierJump-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:54:50",
-      "file_name": "Test-Journal.CodexEntry-2024-02-27.jsonl",
-      "file_size": 716.8,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.CodexEntry-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:54:52",
-      "file_name": "Test-Journal.Docked-2024-02-27.jsonl",
-      "file_size": 7680.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.Docked-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:30",
-      "file_name": "Test-Journal.DockingDenied-2024-02-27.jsonl",
-      "file_size": 512.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.DockingDenied-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:31",
-      "file_name": "Test-Journal.DockingGranted-2024-02-27.jsonl",
-      "file_size": 1536.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.DockingGranted-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:32",
-      "file_name": "Test-Journal.FCMaterials-2024-02-27.jsonl",
-      "file_size": 716.8,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FCMaterials-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:33",
-      "file_name": "Test-Journal.FSDJump-2024-02-27.jsonl",
-      "file_size": 6041.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FSDJump-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:54:54",
-      "file_name": "Test-Journal.FSSAllBodiesFound-2024-02-27.jsonl",
-      "file_size": 512.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FSSAllBodiesFound-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:54:56",
-      "file_name": "Test-Journal.FSSBodySignals-2024-02-27.jsonl",
-      "file_size": 614.4,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FSSBodySignals-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:54:58",
-      "file_name": "Test-Journal.FSSDiscoveryScan-2024-02-27.jsonl",
-      "file_size": 512.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FSSDiscoveryScan-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 22:00:53",
-      "file_name": "Test-Journal.FSSSignalDiscovered-2024-02-27.jsonl",
-      "file_size": 39424.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.FSSSignalDiscovered-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:38",
-      "file_name": "Test-Journal.Location-2024-02-27.jsonl",
-      "file_size": 21401.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.Location-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:55:02",
-      "file_name": "Test-Journal.NavBeaconScan-2024-02-27.jsonl",
-      "file_size": 512.0,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.NavBeaconScan-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:40",
-      "file_name": "Test-Journal.NavRoute-2024-02-27.jsonl",
-      "file_size": 2457.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.NavRoute-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:55:04",
-      "file_name": "Test-Journal.SAASignalsFound-2024-02-27.jsonl",
-      "file_size": 819.2,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.SAASignalsFound-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:57:21",
-      "file_name": "Test-Journal.Scan-2024-02-27.jsonl",
-      "file_size": 3379.2,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.Scan-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:45",
-      "file_name": "Test-Journal.ScanBaryCentre-2024-02-27.jsonl",
-      "file_size": 1433.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Journal.ScanBaryCentre-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 21:36:41",
-      "file_name": "Test-Outfitting-2024-02-27.jsonl",
-      "file_size": 201625.6,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Outfitting-2024-02-27.jsonl"
-    },
-    {
-      "file_modified": "2024-Feb-27 22:02:41",
-      "file_name": "Test-Shipyard-2024-02-27.jsonl",
-      "file_size": 4403.2,
-      "file_type": "application/octet-stream",
-      "url": "https://edgalaxydata.space/EDDN/Test-Shipyard-2024-02-27.jsonl"
+      "url": "https://edgalaxydata.space/EDDN/Test-Outfitting-2024-02-28.jsonl"
     },
     {
       "file_modified": "2024-Feb-10 08:38:00",
@@ -17781,6 +17641,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/CAPI.FCMaterials-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:00",
+      "file_name": "CAPI.FCMaterials-2024-02-27.jsonl.bz2",
+      "file_size": 100147.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/CAPI.FCMaterials-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:30:32",
       "file_name": "Commodity-2024-02-01.jsonl.bz2",
       "file_size": 16462643.2,
@@ -17961,6 +17828,13 @@
       "file_size": 16462643.2,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Commodity-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:38",
+      "file_name": "Commodity-2024-02-27.jsonl.bz2",
+      "file_size": 18559795.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Commodity-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:30:32",
@@ -18145,6 +18019,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.ApproachSettlement-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:38",
+      "file_name": "Journal.ApproachSettlement-2024-02-27.jsonl.bz2",
+      "file_size": 206950.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.ApproachSettlement-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:30:33",
       "file_name": "Journal.CarrierJump-2024-02-01.jsonl.bz2",
       "file_size": 81305.6,
@@ -18325,6 +18206,13 @@
       "file_size": 48230.4,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.CarrierJump-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:38",
+      "file_name": "Journal.CarrierJump-2024-02-27.jsonl.bz2",
+      "file_size": 79564.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.CarrierJump-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:30:33",
@@ -18509,6 +18397,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.CodexEntry-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:39",
+      "file_name": "Journal.CodexEntry-2024-02-27.jsonl.bz2",
+      "file_size": 361062.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.CodexEntry-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:30:35",
       "file_name": "Journal.Docked-2024-02-01.jsonl.bz2",
       "file_size": 1363148.8,
@@ -18689,6 +18584,13 @@
       "file_size": 1258291.2,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Docked-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:41",
+      "file_name": "Journal.Docked-2024-02-27.jsonl.bz2",
+      "file_size": 1572864.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Docked-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-10 08:51:35",
@@ -18873,6 +18775,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.DockingDenied-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:41",
+      "file_name": "Journal.DockingDenied-2024-02-27.jsonl.bz2",
+      "file_size": 15052.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.DockingDenied-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-10 08:51:35",
       "file_name": "Journal.DockingGranted-2024-02-01.jsonl.bz2",
       "file_size": 78028.8,
@@ -19053,6 +18962,13 @@
       "file_size": 123392.0,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.DockingGranted-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:42",
+      "file_name": "Journal.DockingGranted-2024-02-27.jsonl.bz2",
+      "file_size": 140390.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.DockingGranted-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:30:35",
@@ -19237,6 +19153,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FCMaterials-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:42",
+      "file_name": "Journal.FCMaterials-2024-02-27.jsonl.bz2",
+      "file_size": 25190.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FCMaterials-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:30:43",
       "file_name": "Journal.FSDJump-2024-02-01.jsonl.bz2",
       "file_size": 5452595.2,
@@ -19417,6 +19340,13 @@
       "file_size": 5033164.8,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSDJump-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:51",
+      "file_name": "Journal.FSDJump-2024-02-27.jsonl.bz2",
+      "file_size": 6186598.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSDJump-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:30:44",
@@ -19601,6 +19531,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSAllBodiesFound-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:52",
+      "file_name": "Journal.FSSAllBodiesFound-2024-02-27.jsonl.bz2",
+      "file_size": 1048576.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSAllBodiesFound-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:30:44",
       "file_name": "Journal.FSSBodySignals-2024-02-01.jsonl.bz2",
       "file_size": 493772.8,
@@ -19781,6 +19718,13 @@
       "file_size": 341401.6,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSBodySignals-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:30:52",
+      "file_name": "Journal.FSSBodySignals-2024-02-27.jsonl.bz2",
+      "file_size": 442060.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSBodySignals-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:30:46",
@@ -19965,6 +19909,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSDiscoveryScan-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:30:55",
+      "file_name": "Journal.FSSDiscoveryScan-2024-02-27.jsonl.bz2",
+      "file_size": 1992294.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSDiscoveryScan-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:31:01",
       "file_name": "Journal.FSSSignalDiscovered-2024-02-01.jsonl.bz2",
       "file_size": 10590617.6,
@@ -20145,6 +20096,13 @@
       "file_size": 11114905.6,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSSignalDiscovered-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:31:15",
+      "file_name": "Journal.FSSSignalDiscovered-2024-02-27.jsonl.bz2",
+      "file_size": 13841203.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.FSSSignalDiscovered-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:31:04",
@@ -20329,6 +20287,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Location-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:31:18",
+      "file_name": "Journal.Location-2024-02-27.jsonl.bz2",
+      "file_size": 1572864.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Location-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:31:04",
       "file_name": "Journal.NavBeaconScan-2024-02-01.jsonl.bz2",
       "file_size": 46796.8,
@@ -20509,6 +20474,13 @@
       "file_size": 41472.0,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.NavBeaconScan-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:31:18",
+      "file_name": "Journal.NavBeaconScan-2024-02-27.jsonl.bz2",
+      "file_size": 63283.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.NavBeaconScan-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:31:08",
@@ -20693,6 +20665,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.NavRoute-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:31:21",
+      "file_name": "Journal.NavRoute-2024-02-27.jsonl.bz2",
+      "file_size": 4928307.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.NavRoute-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:31:08",
       "file_name": "Journal.SAASignalsFound-2024-02-01.jsonl.bz2",
       "file_size": 447692.8,
@@ -20873,6 +20852,13 @@
       "file_size": 355737.6,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.SAASignalsFound-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:31:22",
+      "file_name": "Journal.SAASignalsFound-2024-02-27.jsonl.bz2",
+      "file_size": 483840.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.SAASignalsFound-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:31:41",
@@ -21057,6 +21043,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Scan-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:31:56",
+      "file_name": "Journal.Scan-2024-02-27.jsonl.bz2",
+      "file_size": 36700160.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.Scan-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:31:42",
       "file_name": "Journal.ScanBaryCentre-2024-02-01.jsonl.bz2",
       "file_size": 1782579.2,
@@ -21237,6 +21230,13 @@
       "file_size": 1468006.4,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.ScanBaryCentre-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:31:57",
+      "file_name": "Journal.ScanBaryCentre-2024-02-27.jsonl.bz2",
+      "file_size": 1887436.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Journal.ScanBaryCentre-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:31:53",
@@ -21421,6 +21421,13 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Outfitting-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:32:14",
+      "file_name": "Outfitting-2024-02-27.jsonl.bz2",
+      "file_size": 4718592.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Outfitting-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-02 01:31:54",
       "file_name": "Shipyard-2024-02-01.jsonl.bz2",
       "file_size": 310784.0,
@@ -21603,11 +21610,46 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Shipyard-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Shipyard-2024-02-27.jsonl.bz2",
+      "file_size": 359936.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Shipyard-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-11 01:32:49",
       "file_name": "Test-Commodity-2024-02-10.jsonl.bz2",
       "file_size": 2150.4,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Commodity-2024-02-10.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Commodity-2024-02-27.jsonl.bz2",
+      "file_size": 6656.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Commodity-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.ApproachSettlement-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.ApproachSettlement-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.CarrierJump-2024-02-27.jsonl.bz2",
+      "file_size": 1331.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.CarrierJump-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.CodexEntry-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.CodexEntry-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-11 01:32:49",
@@ -21624,11 +21666,116 @@
       "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.Docked-2024-02-26.jsonl.bz2"
     },
     {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.Docked-2024-02-27.jsonl.bz2",
+      "file_size": 1433.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.Docked-2024-02-27.jsonl.bz2"
+    },
+    {
       "file_modified": "2024-Feb-11 01:32:49",
       "file_name": "Test-Journal.DockingDenied-2024-02-10.jsonl.bz2",
       "file_size": 614.4,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.DockingDenied-2024-02-10.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.DockingDenied-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.DockingDenied-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.DockingGranted-2024-02-27.jsonl.bz2",
+      "file_size": 614.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.DockingGranted-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FCMaterials-2024-02-27.jsonl.bz2",
+      "file_size": 512.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FCMaterials-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FSDJump-2024-02-27.jsonl.bz2",
+      "file_size": 1638.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FSDJump-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FSSAllBodiesFound-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FSSAllBodiesFound-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FSSBodySignals-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FSSBodySignals-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FSSDiscoveryScan-2024-02-27.jsonl.bz2",
+      "file_size": 409.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FSSDiscoveryScan-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.FSSSignalDiscovered-2024-02-27.jsonl.bz2",
+      "file_size": 3276.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.FSSSignalDiscovered-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.Location-2024-02-27.jsonl.bz2",
+      "file_size": 2150.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.Location-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.NavBeaconScan-2024-02-27.jsonl.bz2",
+      "file_size": 307.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.NavBeaconScan-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.NavRoute-2024-02-27.jsonl.bz2",
+      "file_size": 819.2,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.NavRoute-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.SAASignalsFound-2024-02-27.jsonl.bz2",
+      "file_size": 512.0,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.SAASignalsFound-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.Scan-2024-02-27.jsonl.bz2",
+      "file_size": 1126.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.Scan-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Journal.ScanBaryCentre-2024-02-27.jsonl.bz2",
+      "file_size": 614.4,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Journal.ScanBaryCentre-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-03 01:32:15",
@@ -21783,6 +21930,20 @@
       "file_size": 2252.8,
       "file_type": "application/x-bzip",
       "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Outfitting-2024-02-26.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Outfitting-2024-02-27.jsonl.bz2",
+      "file_size": 6860.8,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Outfitting-2024-02-27.jsonl.bz2"
+    },
+    {
+      "file_modified": "2024-Feb-28 01:32:15",
+      "file_name": "Test-Shipyard-2024-02-27.jsonl.bz2",
+      "file_size": 921.6,
+      "file_type": "application/x-bzip",
+      "url": "https://edgalaxydata.space/EDDN/2024-02/Test-Shipyard-2024-02-27.jsonl.bz2"
     },
     {
       "file_modified": "2024-Feb-02 01:31:54",
