@@ -1,4 +1,5 @@
 use std::fs;
+use std::path::Path;
 use std::io::{Error, ErrorKind, Write};
 use reqwest;
 use rayon::prelude::*;
@@ -12,16 +13,20 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
 
     if !resp.is_err() {
         let response = resp.unwrap();
-        // Check if the response was successful (status code 200)
-        if !response.status().is_success() {
+        // Try to create the downloads directory. This should always work the first time but if it doesn't it could break the code...
 
+        if !Path::exists(Path::new("downloads/")) {
+            let _ = fs::create_dir("downloads/");
         }
 
-        // Try to create the downloads directory. This should always work the first time but if it doesn't it could break the code...
-        let _ = fs::create_dir("downloads/");
-        
+        let full_path = "downloads/".to_owned() + file_name;
+
+        if Path::exists(Path::new(&full_path)) {
+            println!("Skipping existing file: {}", file_name);
+            return Ok(());
+        }
         // Open a file to write the downloaded content
-        let mut file = std::fs::File::create("downloads/".to_owned() + file_name).expect(&format!("Error creating file: {}", file_name));
+        let mut file = std::fs::File::create(full_path).expect(&format!("Error creating file: {}", file_name));
 
         println!("Downloading file: {}", url);
         let content = response.bytes();
