@@ -4,7 +4,6 @@ use std::io::{Error, ErrorKind, Write};
 use reqwest;
 use rayon::prelude::*;
 
-
 fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
     // Make the HTTP GET request using a fresh client (fixes issues where we cannot download in parallel)
     // Fuck async reqwest, all my homies hate managing async contexts
@@ -18,7 +17,7 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         if !Path::exists(Path::new("downloads/")) {
             let _ = fs::create_dir("downloads/");
         }
-
+        
         let full_path = "downloads/".to_owned() + file_name;
 
         if Path::exists(Path::new(&full_path)) {
@@ -32,6 +31,11 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         let content = response.bytes();
         if !content.is_err() {
             file.write(&content.unwrap())?;
+        } else {
+            return Err(Error::new(
+                ErrorKind::Other,
+                format!("Error when writing content to file: {}", content.unwrap_err()),
+            ).into());
         }
         return Ok(());
         
@@ -44,7 +48,6 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         format!("Request failed with status: {}", resp.unwrap().status()),
     ).into());
 }
-
 
 pub fn download_files_in_parallel(urls: &Vec<&str>, file_names: &Vec<&str>, num_workers: usize) -> Result<(), Error> {
     // Zip the URLs and file names together
