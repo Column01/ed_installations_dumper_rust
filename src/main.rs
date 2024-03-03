@@ -71,10 +71,10 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
                     } else {
                         // Create a json blob of the file info
                         let data = json!({
-                            "file_name": file_name.text(),
-                            "file_type": file_type.text(),
-                            "file_size": helpers::string_to_bytes_value(file_size.text()),
-                            "file_modified": file_modified.text(),
+                            "name": file_name.text(),
+                            "type": file_type.text(),
+                            "size": helpers::string_to_bytes_value(file_size.text()),
+                            "modified": file_modified.text(),
                             "url": url
                         });
     
@@ -136,11 +136,11 @@ fn main() -> std::io::Result<()> {
     println!("Filtering files to only gather relevant ones");
 
     let signal_files: Vec<&Value>= files.iter()
-                                        .filter(|x| x["file_name"].to_string().contains("FSSSignalDiscovered"))
+                                        .filter(|x| x["name"].to_string().contains("FSSSignalDiscovered"))
                                         .collect();
 
     let mut total_size: f64 = 0.0;
-    signal_files.iter().for_each(|x| total_size += x["file_size"].as_f64().unwrap());
+    signal_files.iter().for_each(|x| total_size += x["size"].as_f64().unwrap());
 
     println!("Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ", signal_files.len(), helpers::bytes_value_to_size_string(total_size));
     let mut input = String::new();
@@ -156,18 +156,18 @@ fn main() -> std::io::Result<()> {
             println!("Downloading files to disk with {} threads...", num_workers);
 
             // Initialize the two file info vectors
-            let mut file_urls: Vec<&str> = Vec::new();
-            let mut file_names: Vec<&str> = Vec::new();
+            let mut urls: Vec<&str> = Vec::new();
+            let mut names: Vec<&str> = Vec::new();
             // Populate the file info vectors with the info we need
             signal_files.iter().for_each(|x| {
-                file_urls.push(x["url"].as_str().unwrap());
-                file_names.push(x["file_name"].as_str().unwrap());
+                urls.push(x["url"].as_str().unwrap());
+                names.push(x["name"].as_str().unwrap());
             });
             // Download the files
-            let result = downloader::download_files_in_parallel(&file_urls, &file_names, num_workers);
+            let result = downloader::download_files_in_parallel(&urls, &names, num_workers);
 
             match result {
-                Ok(_) => println!("Successfully downloaded {} files!", file_urls.len()),
+                Ok(_) => println!("Successfully downloaded {} files!", urls.len()),
                 Err(e) => println!("Problem downloading files! {:?}", e)
             }
 
