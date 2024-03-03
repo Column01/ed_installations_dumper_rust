@@ -11,6 +11,7 @@ use num_cpus;
 use serde_json::{json, to_writer_pretty, Value};
 use soup::prelude::*;
 use chrono::prelude::*;
+use mongodb::{sync::Client, options::ClientOptions};
 
 fn parse_url(td: &Rc<Node>, base_url: &str) -> Option<String> {
     if td.text() != "None" {
@@ -161,7 +162,22 @@ fn main() -> std::io::Result<()> {
             }
 
         }
-        "N" | "n" => println!("Not saving files to Disk..."),
+        "N" | "n" => {
+            println!("Not saving files to Disk...");
+            return Ok(());
+        },
+        _ => println!("Invalid input. Please enter Y or N."),
+    }
+
+    let input = helpers::get_input("Files have been downloaded, do you want to import them? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
+    match input.trim() {
+        "Y" | "y" => {
+            let client_options = ClientOptions::parse("mongodb://localhost:27017").unwrap();
+            let client = Client::with_options(client_options).expect("Error when creating client!");
+            let _ = importer::import_file(&client, "downloads/Journal.FSSSignalDiscovered-2023-10-15.jsonl.bz2").expect("Error when inserting file into DB");
+
+        }
+        "N" | "n" => println!("Not importing files to DB..."),
         _ => println!("Invalid input. Please enter Y or N."),
     }
     

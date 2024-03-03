@@ -43,6 +43,7 @@ pub fn date_is_after(to_check: NaiveDate, reference: NaiveDate) -> bool {
 }
 
 pub fn get_input(message: &str) -> String {
+    // Gets the users input about "message"
     let mut input = String::new();
     print!("\n{}", message);
     io::stdout().flush().unwrap();
