@@ -3,7 +3,6 @@ mod helpers;
 mod importer;
 
 use std::fs;
-use std::io;
 use std::rc::Rc;
 
 use html5ever::rcdom::Node;
@@ -107,13 +106,8 @@ fn main() -> std::io::Result<()> {
     // Start crawling the directories
     let files: Vec<Value> = crawl_directory(base_url);
 
-    println!("Files have been indexed. Would you like to save their details to a json file? (Y/N): ");
-    let mut input = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    let input = input.trim();
-    match input {
+    let input = helpers::get_input("Files have been indexed. Would you like to save their details to a json file? (Y/N): ");
+    match input.trim() {
         "Y" | "y" => {
             println!("Saving files to JSON...");
             // Take the collection of files and turn it into a json blob
@@ -134,21 +128,16 @@ fn main() -> std::io::Result<()> {
     }
 
     println!("Filtering files to only gather relevant ones");
-
     let signal_files: Vec<&Value>= files.iter()
                                         .filter(|x| x["name"].to_string().contains("FSSSignalDiscovered"))
                                         .collect();
 
+    // Calculate the total size of all files we indexed
     let mut total_size: f64 = 0.0;
     signal_files.iter().for_each(|x| total_size += x["size"].as_f64().unwrap());
 
-    println!("Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ", signal_files.len(), helpers::bytes_value_to_size_string(total_size));
-    let mut input = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    let input = input.trim();
-    match input {
+    let input = helpers::get_input(&format!("Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ", signal_files.len(), helpers::bytes_value_to_size_string(total_size)));
+    match input.trim() {
         "Y" | "y" => {
             // The number of threads to use in the download. Defaults to: num_cpus - 1 
             // (though if you have any more than a few cores and slow internet, you may want to lower this)
