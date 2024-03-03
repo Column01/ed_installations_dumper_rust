@@ -40,5 +40,5 @@ pub fn import_file(file_name: &str) -> std::io::Result<()> {
         },
     }
     
-    Ok(())
+    return Ok(());
 }

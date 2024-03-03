@@ -2,7 +2,7 @@ use std::fs;
 use std::path::Path;
 use std::io::{Error, ErrorKind, Write};
 use reqwest;
-use rayon::prelude::*;
+use rayon::prelude::*;    
 
 fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
     // Make the HTTP GET request using a fresh client (fixes issues where we cannot download in parallel)
@@ -38,10 +38,6 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
             ).into());
         }
         return Ok(());
-        
-        // let _ = response.copy_to(&mut file);
-        // Copy the bytes from the response to the file
-        // copy(&mut response, &mut file)?;
     }
     return Err(Error::new(
         ErrorKind::Other,
@@ -63,5 +59,5 @@ pub fn download_files_in_parallel(urls: &Vec<&str>, file_names: &Vec<&str>, num_
         });
     });
 
-    Ok(())
+    return Ok(());
 }

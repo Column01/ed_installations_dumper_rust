@@ -21,9 +21,7 @@ fn parse_url(td: &Rc<Node>, base_url: &str) -> Option<String> {
             if url != "None" {
                 return Some(format!("{}{}", base_url, url));
             }
-            return None;
         }
-        return None;
     }
     return None;
 }
