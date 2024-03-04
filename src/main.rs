@@ -172,9 +172,15 @@ fn main() -> std::io::Result<()> {
     let input = helpers::get_input("Files have been downloaded, do you want to import them? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
     match input.trim() {
         "Y" | "y" => {
+            let num_workers = num_cpus::get() - 8;
+            // Create the mongo DB client we will use
             let client_options = ClientOptions::parse("mongodb://localhost:27017").unwrap();
             let client = Client::with_options(client_options).expect("Error when creating client!");
-            let _ = importer::import_file(&client, "downloads/Journal.FSSSignalDiscovered-2023-10-15.jsonl.bz2").expect("Error when inserting file into DB");
+            // Create a new list to fill with file names and then populate it
+            let mut files = Vec::new();
+            signal_files.iter().for_each(|file| files.push("downloads/".to_owned() + file["name"].as_str().unwrap()));
+            // Try to import the files
+            let _ = importer::import_files(&client, &files, num_workers).expect("Error when inserting file into DB");
 
         }
         "N" | "n" => println!("Not importing files to DB..."),
