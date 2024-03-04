@@ -5,13 +5,17 @@ mod importer;
 use std::fs;
 use std::rc::Rc;
 
+use bson::Document;
+use chrono::prelude::*;
 use html5ever::rcdom::Node;
-use reqwest;
+use mongodb::{
+    options::ClientOptions,
+    sync::{Client, Collection},
+};
 use num_cpus;
+use reqwest;
 use serde_json::{json, to_writer_pretty, Value};
 use soup::prelude::*;
-use chrono::prelude::*;
-use mongodb::{sync::Client, options::ClientOptions};
 
 fn parse_url(td: &Rc<Node>, base_url: &str) -> Option<String> {
     if td.text() != "None" {
@@ -42,10 +46,22 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
 
     for tr in trs {
         // Get the info about the file
-        let file_name = tr.class("n").find().expect("File name attribute was not found");
-        let file_type = tr.class("t").find().expect("File type attribute was not found");
-        let file_size = tr.class("s").find().expect("File size attribute was not found");
-        let file_modified = tr.class("m").find().expect("File modified attribute was not found");
+        let file_name = tr
+            .class("n")
+            .find()
+            .expect("File name attribute was not found");
+        let file_type = tr
+            .class("t")
+            .find()
+            .expect("File type attribute was not found");
+        let file_size = tr
+            .class("s")
+            .find()
+            .expect("File size attribute was not found");
+        let file_modified = tr
+            .class("m")
+            .find()
+            .expect("File modified attribute was not found");
 
         // Skip table headers and "parent directory" items
         if file_name.text() == "Name" || file_name.text() == "../" {
@@ -53,11 +69,11 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
         }
 
         // Make a NaiveDate from the file modified info
-        let file_date = NaiveDate::parse_from_str(file_modified.text().as_str(), "%Y-%b-%d %H:%M:%S").unwrap();
+        let file_date =
+            NaiveDate::parse_from_str(file_modified.text().as_str(), "%Y-%b-%d %H:%M:%S").unwrap();
 
         // Compare the file's creation date to the update 17 release date, if its newer than that update we want it
         if helpers::date_is_after(file_date, update_17) {
-
             // Parse the url from the file_name Node
             let parsed_url = parse_url(&file_name, url);
 
@@ -77,11 +93,11 @@ fn find_files(url: &str) -> (Vec<Value>, Vec<String>) {
                             "modified": file_modified.text(),
                             "url": url
                         });
-    
+
                         // Push a file blob into the file vector
                         files.push(data);
                     }
-                },
+                }
                 None => {}
             }
         }
@@ -94,7 +110,9 @@ fn crawl_directory(base_url: &str) -> Vec<Value> {
     // Collect all files in a directory
     let (mut files, directories) = find_files(base_url);
     // Run a recursive scan of sub directories and collect all files
-    directories.iter().for_each(|dir| files.extend(crawl_directory(&dir)));
+    directories
+        .iter()
+        .for_each(|dir| files.extend(crawl_directory(&dir)));
 
     println!("Indexed {} files", files.len());
     return files;
@@ -107,7 +125,9 @@ fn main() -> std::io::Result<()> {
     // Start crawling the directories
     let files: Vec<Value> = crawl_directory(base_url);
 
-    let input = helpers::get_input("Files have been indexed. Would you like to save their details to a json file? (Y/N): ");
+    let input = helpers::get_input(
+        "Files have been indexed. Would you like to save their details to a json file? (Y/N): ",
+    );
     match input.trim() {
         "Y" | "y" => {
             println!("Saving files to JSON...");
@@ -129,18 +149,26 @@ fn main() -> std::io::Result<()> {
     }
 
     println!("Filtering files to only gather relevant ones");
-    let signal_files: Vec<&Value>= files.iter()
-                                        .filter(|x| x["name"].to_string().contains("FSSSignalDiscovered"))
-                                        .collect();
+    let signal_files: Vec<&Value> = files
+        .iter()
+        .filter(|x| x["name"].to_string().contains("FSSSignalDiscovered"))
+        .filter(|x| !x["name"].to_string().contains("Test"))
+        .collect();
 
     // Calculate the total size of all files we indexed
     let mut total_size: f64 = 0.0;
-    signal_files.iter().for_each(|x| total_size += x["size"].as_f64().unwrap());
+    signal_files
+        .iter()
+        .for_each(|x| total_size += x["size"].as_f64().unwrap());
 
-    let input = helpers::get_input(&format!("Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ", signal_files.len(), helpers::bytes_value_to_size_string(total_size)));
+    let input = helpers::get_input(&format!(
+        "Filtered {} files totalling {} in size. Would you like to download them? (Y/N): ",
+        signal_files.len(),
+        helpers::bytes_value_to_size_string(total_size)
+    ));
     match input.trim() {
         "Y" | "y" => {
-            // The number of threads to use in the download. Defaults to: num_cpus - 1 
+            // The number of threads to use in the download. Defaults to: num_cpus - 1
             // (though if you have any more than a few cores and slow internet, you may want to lower this)
             let num_workers = num_cpus::get() - 1;
             println!("Downloading files to disk with {} threads...", num_workers);
@@ -158,34 +186,37 @@ fn main() -> std::io::Result<()> {
 
             match result {
                 Ok(_) => println!("Successfully downloaded {} files!", urls.len()),
-                Err(e) => println!("Problem downloading files! {:?}", e)
+                Err(e) => println!("Problem downloading files! {:?}", e),
             }
-
         }
-        "N" | "n" => {
-            println!("Not saving files to Disk...");
-            return Ok(());
-        },
+        "N" | "n" => println!("Not saving files to Disk..."),
         _ => println!("Invalid input. Please enter Y or N."),
     }
 
     let input = helpers::get_input("Files have been downloaded, do you want to import them? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
     match input.trim() {
         "Y" | "y" => {
-            let num_workers = num_cpus::get() - 8;
+            let num_workers = num_cpus::get() / 3;
             // Create the mongo DB client we will use
             let client_options = ClientOptions::parse("mongodb://localhost:27017").unwrap();
-            let client = Client::with_options(client_options).expect("Error when creating client!");
+            let client =
+                Client::with_options(client_options).expect("Error when creating database client!");
+            let db = client.database("FSSSignalDiscovered");
+            let collection: Collection<Document> = db.collection("rust_test");
+            // Drop the collection to start fresh (mostly for testing purposes, smart import will be later lol)
+            let _ = collection.drop(None);
             // Create a new list to fill with file names and then populate it
             let mut files = Vec::new();
-            signal_files.iter().for_each(|file| files.push("downloads/".to_owned() + file["name"].as_str().unwrap()));
+            signal_files.iter().for_each(|file| {
+                files.push("downloads/".to_owned() + file["name"].as_str().unwrap())
+            });
             // Try to import the files
-            let _ = importer::import_files(&client, &files, num_workers).expect("Error when inserting file into DB");
-
+            let _ = importer::import_files(&client, &files, num_workers)
+                .expect("Error when inserting files into DB!");
         }
         "N" | "n" => println!("Not importing files to DB..."),
         _ => println!("Invalid input. Please enter Y or N."),
     }
-    
+
     return Ok(());
 }

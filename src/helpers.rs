@@ -17,7 +17,7 @@ pub fn string_to_bytes_value(string: String) -> f64 {
         'K' => 1024,
         'M' => 1048576,
         'G' => 1073741824,
-        _ => 1
+        _ => 1,
     };
     // Calculate the bytes value
     return size_value * multiplier as f64;

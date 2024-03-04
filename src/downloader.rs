@@ -1,8 +1,8 @@
-use std::fs;
-use std::path::Path;
-use std::io::{Error, ErrorKind, Write};
+use rayon::prelude::*;
 use reqwest;
-use rayon::prelude::*;    
+use std::fs;
+use std::io::{Error, ErrorKind, Write};
+use std::path::Path;
 
 fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
     // Make the HTTP GET request using a fresh client (fixes issues where we cannot download in parallel)
@@ -17,7 +17,7 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         if !Path::exists(Path::new("downloads/")) {
             let _ = fs::create_dir("downloads/");
         }
-        
+
         let full_path = "downloads/".to_owned() + file_name;
 
         if Path::exists(Path::new(&full_path)) {
@@ -25,7 +25,8 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
             return Ok(());
         }
         // Open a file to write the downloaded content
-        let mut file = std::fs::File::create(full_path).expect(&format!("Error creating file: {}", file_name));
+        let mut file =
+            std::fs::File::create(full_path).expect(&format!("Error creating file: {}", file_name));
 
         println!("Downloading file: {}", url);
         let content = response.bytes();
@@ -34,21 +35,33 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         } else {
             return Err(Error::new(
                 ErrorKind::Other,
-                format!("Error when writing content to file: {}", content.unwrap_err()),
-            ).into());
+                format!(
+                    "Error when writing content to file: {}",
+                    content.unwrap_err()
+                ),
+            )
+            .into());
         }
         return Ok(());
     }
     return Err(Error::new(
         ErrorKind::Other,
         format!("Request failed with status: {}", resp.unwrap().status()),
-    ).into());
+    )
+    .into());
 }
 
-pub fn download_files_in_parallel(urls: &Vec<&str>, file_names: &Vec<&str>, num_workers: usize) -> Result<(), Error> {
+pub fn download_files_in_parallel(
+    urls: &Vec<&str>,
+    file_names: &Vec<&str>,
+    num_workers: usize,
+) -> Result<(), Error> {
     // Zip the URLs and file names together
     let pairs: Vec<_> = urls.iter().zip(file_names.iter()).collect();
-    let pool = rayon::ThreadPoolBuilder::new().num_threads(num_workers).build().unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(num_workers)
+        .build()
+        .unwrap();
 
     // Download the files in parallel
     pool.install(|| {
