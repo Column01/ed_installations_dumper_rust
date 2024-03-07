@@ -8,7 +8,7 @@ use std::rc::Rc;
 use bson::{doc, Document};
 use chrono::prelude::*;
 use html5ever::rcdom::Node;
-use mongodb::{sync::Client, sync::Collection, options::FindOptions};
+use mongodb::{options::FindOptions, sync::Client, sync::Collection};
 use num_cpus;
 use reqwest;
 use serde_json::{json, to_writer_pretty, Value};
@@ -195,8 +195,8 @@ fn main() -> std::io::Result<()> {
         "Y" | "y" => {
             let num_workers = num_cpus::get() / 3;
             // Create the mongo DB client we will use
-            let client =
-                Client::with_uri_str("mongodb://localhost:27017").expect("Error when creating database client!");
+            let client = Client::with_uri_str("mongodb://localhost:27017")
+                .expect("Error when creating database client!");
             let db = client.database("FSSSignalDiscovered");
             let collection: Collection<Document> = db.collection("rust_test");
             // Drop the collection to start fresh (mostly for testing purposes, smart import will be later lol)
@@ -214,14 +214,16 @@ fn main() -> std::io::Result<()> {
         _ => println!("Invalid input. Please enter Y or N."),
     }
 
-    let input = helpers::get_input("Files have been imported. Would you like to generate an installations dump? (Y/N): ");
+    let input = helpers::get_input(
+        "Files have been imported. Would you like to generate an installations dump? (Y/N): ",
+    );
 
     match input.trim() {
         "Y" | "y" => {
             println!("Connecting to database...");
             // Create the mongo DB client we will use
-            let client =
-                Client::with_uri_str("mongodb://localhost:27017").expect("Error when creating database client!");
+            let client = Client::with_uri_str("mongodb://localhost:27017")
+                .expect("Error when creating database client!");
             let db = client.database("FSSSignalDiscovered");
             let collection: Collection<Document> = db.collection("rust_test");
 
@@ -259,45 +261,70 @@ fn main() -> std::io::Result<()> {
                         signal.remove("_id");
 
                         // Convert the signal to a serde_json::Value
-                        let data: serde_json::Value = serde_json::from_str(&signal.to_string()).unwrap();
+                        let data: serde_json::Value =
+                            serde_json::from_str(&signal.to_string()).unwrap();
 
                         // Get the StarSystem from the message key in the data
-                        let star_system = &data["message"]["StarSystem"];
+                        let star_system = &data["message"]["StarSystem"].as_str().unwrap();
 
                         // Check if the star system is in the unique_signals JSON value
-                        if !unique_signals.as_object().unwrap().contains_key(star_system.as_str().unwrap()) {
+                        if !unique_signals
+                            .as_object()
+                            .unwrap()
+                            .contains_key(&star_system.to_string())
+                        {
                             // If it isn't, add it with the data as the value
-                            unique_signals.as_object_mut().unwrap().insert(star_system.as_str().unwrap().to_string(), data);
+                            unique_signals
+                                .as_object_mut()
+                                .unwrap()
+                                .insert(star_system.to_string(), data);
                         } else {
                             // If it is, check the timestamp of the current signal and the one in unique_signals
                             let current_timestamp = &data["message"]["signals"][0]["timestamp"];
-                            let stored_timestamp = &unique_signals[star_system.as_str().unwrap()]["message"]["signals"][0]["timestamp"];
+                            let stored_timestamp =
+                                &unique_signals[star_system]["message"]["signals"][0]["timestamp"];
 
                             // Parse the timestamps as NaiveDate
-                            let current_date = NaiveDate::parse_from_str(current_timestamp.as_str().unwrap(), "%Y-%m-%dT%H:%M:%SZ").unwrap();
-                            let stored_date = NaiveDate::parse_from_str(stored_timestamp.as_str().unwrap(), "%Y-%m-%dT%H:%M:%SZ").unwrap();
+                            let current_date = NaiveDate::parse_from_str(
+                                current_timestamp.as_str().unwrap(),
+                                "%Y-%m-%dT%H:%M:%SZ",
+                            )
+                            .unwrap();
+                            let stored_date = NaiveDate::parse_from_str(
+                                stored_timestamp.as_str().unwrap(),
+                                "%Y-%m-%dT%H:%M:%SZ",
+                            )
+                            .unwrap();
 
                             // If the current signal is newer, replace the one in unique_signals
                             if helpers::date_is_after(current_date, stored_date) {
-                                unique_signals.as_object_mut().unwrap().insert(star_system.as_str().unwrap().to_string(), data);
+                                unique_signals
+                                    .as_object_mut()
+                                    .unwrap()
+                                    .insert(star_system.to_string(), data);
                             }
                         }
-
-                    },
-                    Err(e) => println!("Error: {:?}", e),
+                    }
+                    Err(e) => println!("Error processing document: {:?}", e),
                 }
             }
 
             // Print a message with the number of signals remaining in unique_signals
-            println!("Number of unique signals: {}", unique_signals.as_object().unwrap().len());
+            println!(
+                "Number of unique signals: {}",
+                unique_signals.as_object().unwrap().len()
+            );
             println!("Dumping to disk as requested...");
             // Create a files.json file and dump the json data to it
             let file = fs::File::create("installations.json")?;
             let result = to_writer_pretty(file, &unique_signals);
             if result.is_ok() {
-                println!("Dumped {} signals blobs to disk.", unique_signals.as_object().unwrap().len());
+                println!(
+                    "Dumped {} signals blobs to disk.",
+                    unique_signals.as_object().unwrap().len()
+                );
             } else {
-                println!("Error writing file blobs to disk:\n {:?}", result);
+                println!("Error writing signal blobs to disk:\n {:?}", result);
             }
         }
         "N" | "n" => println!("Not generating an installations dump..."),
