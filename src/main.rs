@@ -189,8 +189,7 @@ fn main() -> std::io::Result<()> {
         "N" | "n" => println!("Not saving files to Disk..."),
         _ => println!("Invalid input. Please enter Y or N."),
     }
-
-    let input = helpers::get_input("Files have been downloaded, do you want to import them? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
+    let input = helpers::get_input("Do you want to import any downloaded files? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
     match input.trim() {
         "Y" | "y" => {
             let num_workers = num_cpus::get() / 3;
@@ -215,7 +214,7 @@ fn main() -> std::io::Result<()> {
     }
 
     let input = helpers::get_input(
-        "Files have been imported. Would you like to generate an installations dump? (Y/N): ",
+        "Would you like to generate an installations dump? (Y/N): ",
     );
 
     match input.trim() {
@@ -253,6 +252,9 @@ fn main() -> std::io::Result<()> {
             let mut unique_signals: serde_json::Value = serde_json::json!({});
 
             println!("Filtering results...");
+
+            let mut i = 0;
+            let mut has_printed = false;
             // Iterate over the results
             for result in signals {
                 match result {
@@ -278,6 +280,9 @@ fn main() -> std::io::Result<()> {
                                 .as_object_mut()
                                 .unwrap()
                                 .insert(star_system.to_string(), data);
+                            // Print a message every 100 results
+                            i += 1;
+                            has_printed = false;
                         } else {
                             // If it is, check the timestamp of the current signal and the one in unique_signals
                             let current_timestamp = &data["message"]["signals"][0]["timestamp"];
@@ -302,7 +307,14 @@ fn main() -> std::io::Result<()> {
                                     .as_object_mut()
                                     .unwrap()
                                     .insert(star_system.to_string(), data);
+                                i += 1;
+                                has_printed = false;
                             }
+                        }
+                        // Print a message every 1000 results we process
+                        if i % 1000 == 0 && !has_printed {
+                            println!("Processed {} total items that are new or should replace existing ones...", i);
+                            has_printed = true;
                         }
                     }
                     Err(e) => println!("Error processing document: {:?}", e),
