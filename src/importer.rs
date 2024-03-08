@@ -84,7 +84,7 @@ pub fn import_files(
                     }
                     std::fs::rename(file_path, processed_file_path).expect("Error moving file after import!");
                 }
-                Err(_) => todo!(),
+                Err(e) => println!("Error when importing file: {}", e),
             }
         })
     });
