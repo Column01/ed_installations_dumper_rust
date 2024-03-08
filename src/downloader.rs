@@ -19,8 +19,9 @@ fn download_file(url: &str, file_name: &str) -> Result<(), Error> {
         }
 
         let full_path = "downloads/".to_owned() + file_name;
+        let full_processed_path = "downloads/processed/".to_owned() + file_name;
 
-        if Path::exists(Path::new(&full_path)) {
+        if Path::exists(Path::new(&full_path)) || Path::exists(Path::new(&full_processed_path)) {
             println!("Skipping existing file: {}", file_name);
             return Ok(());
         }
