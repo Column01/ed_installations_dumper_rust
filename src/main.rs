@@ -198,8 +198,6 @@ fn main() -> std::io::Result<()> {
                 .expect("Error when creating database client!");
             let db = client.database("FSSSignalDiscovered");
             let collection: Collection<Document> = db.collection("rust_test");
-            // Drop the collection to start fresh (mostly for testing purposes, smart import will be later lol)
-            let _ = collection.drop(None);
 
             // Create a new list to fill with file names
             let mut files = Vec::new();
