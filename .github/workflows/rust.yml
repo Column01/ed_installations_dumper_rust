@@ -1,55 +1,45 @@
-name: Rust
+name: Release
 
-on: [push, workflow_dispatch]
+permissions:
+  contents: write
+
+on:  
+  push:
+    tags:
+      - '*'
 
 jobs:
-  build:
+  create-release:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Install latest rust toolchain
-        uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: taiki-e/create-gh-release-action@v1
         with:
-          toolchain: stable
-          default: true
-          override: true
+          # (required) GitHub token for creating GitHub Releases.
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build
-        run: cargo build --all --release && strip target/release/eddn_indexer && mv target/release/eddn_indexer target/release/eddn_indexer_amd64
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            target/release/eddn_indexer_amd64
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  build-win:
-    runs-on: windows-latest
-
+  upload-assets:
+    needs: create-release
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Install latest rust toolchain
-        uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v4
+      - uses: taiki-e/upload-rust-binary-action@v1
         with:
-          toolchain: stable
-          default: true
-          override: true
-
-      - name: Build
-        run: cargo build --all --release
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: target/release/eddn_indexer.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # (required) Comma-separated list of binary names (non-extension portion of filename) to build and upload.
+          # Note that glob pattern is not supported yet.
+          bin: eddn_indexer
+          # (optional) On which platform to distribute the `.tar.gz` file.
+          # [default value: unix]
+          # [possible values: all, unix, windows, none]
+          tar: unix
+          # (optional) On which platform to distribute the `.zip` file.
+          # [default value: windows]
+          # [possible values: all, unix, windows, none]
+          zip: windows
+          # (required) GitHub token for uploading assets to GitHub Releases.
+          token: ${{ secrets.GITHUB_TOKEN }}
