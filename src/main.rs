@@ -200,11 +200,19 @@ fn main() -> std::io::Result<()> {
             let collection: Collection<Document> = db.collection("rust_test");
             // Drop the collection to start fresh (mostly for testing purposes, smart import will be later lol)
             let _ = collection.drop(None);
-            // Create a new list to fill with file names and then populate it
+
+            // Create a new list to fill with file names
             let mut files = Vec::new();
-            signal_files.iter().for_each(|file| {
-                files.push("downloads/".to_owned() + file["name"].as_str().unwrap())
-            });
+            // Populate the list with files in the downloads directory
+            let dir = fs::read_dir("downloads/").unwrap();
+            for file in dir {
+                let file = file.unwrap();
+                let path = file.path();
+                if path.is_file() {
+                    files.push(path.into_os_string().into_string().unwrap());
+                }
+            }
+            println!("Importing {} files...", files.len());
             // Try to import the files
             let _ = importer::import_files(&client, &files, num_workers)
                 .expect("Error when inserting files into DB!");
