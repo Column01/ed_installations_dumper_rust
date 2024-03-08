@@ -1,26 +1,28 @@
 # ED Installations Dumper Rust
 
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Column01/ed_installations_dumper_rust/total?label=Download&style=for-the-badge)](https://github.com/Column01/ed_installations_dumper_rust/releases)
-
 This is a proof of concept rewrite for my [Python program that does the same thing as this one](https://github.com/Column01/ED-Installations-Dumper). I'd prefer if you use the other one but use at your own risk :D (I do plan on supporting this one though too)
 
-## Building from Source
-
-### Install Pre-Requisites
+## Install Pre-Requisites
 
 - Install [MongoDB Community Server](https://www.mongodb.com/try/download/community) _(developed on `7.0.5`)_
-- Install [rust](https://www.rust-lang.org/tools/install) _(developed on `1.76.0`)_
 
-**Note:** You can get the latest versions for each, but the versions are specified to ensure compatibility
+## Obtaining a binary
 
-### Building the Program
+### Prebuilt Binaries
 
-1. Download the repo:
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Column01/ed_installations_dumper_rust/total?label=Download)](https://github.com/Column01/ed_installations_dumper_rust/releases)
+
+A prebuilt binary for Linux and Windows can be downloaded by clicking the download button above
+
+### Building from Source
+
+1. Install [rust](https://www.rust-lang.org/tools/install) _(developed on `1.76.0`)_
+2. Download the repo:
     - `git clone https://github.com/Column01/ed_installations_dumper_rust.git`
-2. Build the executable:
+3. Build the executable:
     - `cd ed_installations_dumper_rust`
     - `cargo build --release`
-3. Run it
+4. Run it
     - The executable was built and placed in the `target/release` folder as `eddn_indexer.exe` or maybe `eddn_indexer`, depends on platform
     - Move it (if you want) to wherever you want to that has enough disk space for the files to be downloaded to (5-10GB)
     - Run it from the terminal using `./eddn_indexer.exe` or whatever file was built earlier
