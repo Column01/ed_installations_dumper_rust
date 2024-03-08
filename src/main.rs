@@ -197,7 +197,6 @@ fn main() -> std::io::Result<()> {
             let client = Client::with_uri_str("mongodb://localhost:27017")
                 .expect("Error when creating database client!");
             let db = client.database("FSSSignalDiscovered");
-            let collection: Collection<Document> = db.collection("rust_test");
 
             // Create a new list to fill with file names
             let mut files = Vec::new();
