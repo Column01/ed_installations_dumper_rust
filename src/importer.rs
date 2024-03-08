@@ -54,13 +54,11 @@ pub fn import_files(
                     let _ = collection.insert_many(lines, None).unwrap();
 
                     // Move the file after processing
-                    let file_name = file_path.replace("downloads/", "");
-                    let processed_file_path = format!("downloads/processed/{}", file_name);
+                    let processed_file_path = format!("downloads/processed/{}", file_path.replace("downloads/", ""));
                     // Ensure the processed directory exists
                     if !Path::new("downloads/processed").exists() {
                         std::fs::create_dir_all("downloads/processed").unwrap();
                     }
-                    println!("{} => {}", file_path, processed_file_path);
                     std::fs::rename(file_path, processed_file_path).expect("Error moving file after import!");
                 }
                 Ok(Reader::NormalReader(r)) => {
@@ -79,13 +77,11 @@ pub fn import_files(
                     let _ = collection.insert_many(lines, None).unwrap();
 
                     // Move the file after processing
-                    let file_name = file_path.replace("downloads/", "");
-                    let processed_file_path = format!("downloads/processed/{}", file_name);
+                    let processed_file_path = format!("downloads/processed/{}", file_path.replace("downloads/", ""));
                     // Ensure the processed directory exists
                     if !Path::new("downloads/processed").exists() {
                         std::fs::create_dir_all("downloads/processed").unwrap();
                     }
-                    println!("{} => {}", file_path, processed_file_path);
                     std::fs::rename(file_path, processed_file_path).expect("Error moving file after import!");
                 }
                 Err(_) => todo!(),
