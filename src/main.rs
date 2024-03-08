@@ -213,9 +213,7 @@ fn main() -> std::io::Result<()> {
         _ => println!("Invalid input. Please enter Y or N."),
     }
 
-    let input = helpers::get_input(
-        "Would you like to generate an installations dump? (Y/N): ",
-    );
+    let input = helpers::get_input("Would you like to generate an installations dump? (Y/N): ");
 
     match input.trim() {
         "Y" | "y" => {
@@ -249,7 +247,7 @@ fn main() -> std::io::Result<()> {
             let find_options = FindOptions::builder().projection(projection).build();
             let signals = collection.find(query, find_options).unwrap();
             // Create a new JSON Value to store unique signals
-            let mut unique_signals: serde_json::Value = serde_json::json!({});
+            let mut unique_signals = serde_json::Map::new();
 
             println!("Filtering results...");
 
@@ -267,19 +265,13 @@ fn main() -> std::io::Result<()> {
                             serde_json::from_str(&signal.to_string()).unwrap();
 
                         // Get the StarSystem from the message key in the data
-                        let star_system = &data["message"]["StarSystem"].as_str().unwrap();
+                        let star_system =
+                            &data["message"]["StarSystem"].as_str().unwrap().to_string();
 
                         // Check if the star system is in the unique_signals JSON value
-                        if !unique_signals
-                            .as_object()
-                            .unwrap()
-                            .contains_key(&star_system.to_string())
-                        {
+                        if !unique_signals.contains_key(star_system) {
                             // If it isn't, add it with the data as the value
-                            unique_signals
-                                .as_object_mut()
-                                .unwrap()
-                                .insert(star_system.to_string(), data);
+                            unique_signals.insert(star_system.to_string(), data);
                             // Print a message every 100 results
                             i += 1;
                             has_printed = false;
@@ -303,10 +295,7 @@ fn main() -> std::io::Result<()> {
 
                             // If the current signal is newer, replace the one in unique_signals
                             if helpers::date_is_after(current_date, stored_date) {
-                                unique_signals
-                                    .as_object_mut()
-                                    .unwrap()
-                                    .insert(star_system.to_string(), data);
+                                unique_signals.insert(star_system.to_string(), data);
                                 i += 1;
                                 has_printed = false;
                             }
@@ -322,19 +311,13 @@ fn main() -> std::io::Result<()> {
             }
 
             // Print a message with the number of signals remaining in unique_signals
-            println!(
-                "Number of unique signals: {}",
-                unique_signals.as_object().unwrap().len()
-            );
+            println!("Number of unique signals: {}", unique_signals.len());
             println!("Dumping to disk as requested...");
             // Create a files.json file and dump the json data to it
             let file = fs::File::create("installations.json")?;
             let result = to_writer_pretty(file, &unique_signals);
             if result.is_ok() {
-                println!(
-                    "Dumped {} signals blobs to disk.",
-                    unique_signals.as_object().unwrap().len()
-                );
+                println!("Dumped {} signals blobs to disk.", unique_signals.len());
             } else {
                 println!("Error writing signal blobs to disk:\n {:?}", result);
             }
