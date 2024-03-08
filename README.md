@@ -1,15 +1,19 @@
 # ED Installations Dumper Rust
 
-This is a proof of concept rewrite for my [Python program that does the same thing as this one](https://github.com/Column01/ED-Installations-Dumper), please use the other one!
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Column01/ed_installations_dumper_rust/total?label=Download&style=for-the-badge)](https://github.com/Column01/ed_installations_dumper_rust/releases)
 
-## Install Pre-Requisites
+This is a proof of concept rewrite for my [Python program that does the same thing as this one](https://github.com/Column01/ED-Installations-Dumper). I'd prefer if you use the other one but use at your own risk :D (I do plan on supporting this one though too)
+
+## Building from Source
+
+### Install Pre-Requisites
 
 - Install [MongoDB Community Server](https://www.mongodb.com/try/download/community) _(developed on `7.0.5`)_
 - Install [rust](https://www.rust-lang.org/tools/install) _(developed on `1.76.0`)_
 
 **Note:** You can get the latest versions for each, but the versions are specified to ensure compatibility
 
-## Building the Program
+### Building the Program
 
 1. Download the repo:
     - `git clone https://github.com/Column01/ed_installations_dumper_rust.git`
