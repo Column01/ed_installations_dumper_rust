@@ -3,29 +3,29 @@ use mongodb::sync::Client;
 use rayon::prelude::*;
 use serde_json::Value;
 use std::fs::File;
-use std::io::{BufRead, BufReader, Error};
+use std::io::{Error, Read};
 use std::path::Path;
 
 enum Reader {
-    DecompressorReader(BufReader<BzDecoder<File>>),
-    NormalReader(BufReader<File>),
+    DecompressorReader(BzDecoder<File>),
+    NormalReader(File),
 }
 
 fn get_reader(file_name: &str) -> Result<Reader, Error> {
     let file = File::open(file_name)?;
     if file_name.ends_with("bz2") {
-        return Ok(Reader::DecompressorReader(BufReader::new(BzDecoder::new(
+        return Ok(Reader::DecompressorReader(BzDecoder::new(
             file,
-        ))));
+        )));
     }
-    return Ok(Reader::NormalReader(BufReader::new(file)));
+    return Ok(Reader::NormalReader(file));
 }
 
 pub fn import_files(
     client: &Client,
     file_paths: &Vec<String>,
     num_workers: usize,
-) -> std::io::Result<()> {
+) -> Result<(), Error> {
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(num_workers)
         .build()
@@ -38,20 +38,24 @@ pub fn import_files(
             let collection = db.collection("rust_test");
 
             match get_reader(file_path) {
-                Ok(Reader::DecompressorReader(r)) => {
+                Ok(Reader::DecompressorReader(mut r)) => {
                     // Compressed file reader
                     // Collect all lines from the file and store them
-                    let mut lines = Vec::new();
-                    for line in r.lines() {
-                        let line = line.unwrap();
+                    let mut str = String::new();
+                    r.read_to_string(&mut str).unwrap();
+                    let mut docs = Vec::new();
+                    for line in str.trim().split("\n") {
                         let json_blob: Value = serde_json::from_str(&line)
                             .expect(&format!("Error loading json data from: {}", file_path));
                         let doc = bson::to_document(&json_blob)
                             .expect("Error converting json blob to bson!");
-                        lines.push(doc);
+                        docs.push(doc);
                     }
+                    
+                    // Remove the original string from memory
+                    drop(str);
                     // Insert all lines into the collection
-                    let _ = collection.insert_many(lines, None).unwrap();
+                    let _ = collection.insert_many(docs).run().unwrap();
 
                     // Move the file after processing
                     let processed_file_path = format!("downloads/processed/{}", file_path.replace("downloads/", ""));
@@ -61,20 +65,23 @@ pub fn import_files(
                     }
                     std::fs::rename(file_path, processed_file_path).expect("Error moving file after import!");
                 }
-                Ok(Reader::NormalReader(r)) => {
+                Ok(Reader::NormalReader(mut r)) => {
                     // Normal file reader
                     // Collect all lines from the file and store them
-                    let mut lines = Vec::new();
-                    for line in r.lines() {
-                        let line = line.unwrap();
+                    let mut str = String::new();
+                    r.read_to_string(&mut str).unwrap();
+                    let mut docs = Vec::new();
+                    for line in str.trim().split("\n") {
                         let json_blob: Value = serde_json::from_str(&line)
                             .expect(&format!("Error loading json data from: {}", file_path));
                         let doc = bson::to_document(&json_blob)
                             .expect("Error converting json blob to bson!");
-                        lines.push(doc);
+                        docs.push(doc);
                     }
+                    // Remove the original string from memory
+                    drop(str);
                     // Insert all lines into the collection
-                    let _ = collection.insert_many(lines, None).unwrap();
+                    let _ = collection.insert_many(docs).run().unwrap();
 
                     // Move the file after processing
                     let processed_file_path = format!("downloads/processed/{}", file_path.replace("downloads/", ""));

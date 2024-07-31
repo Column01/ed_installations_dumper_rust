@@ -192,7 +192,7 @@ fn main() -> std::io::Result<()> {
     let input = helpers::get_input("Do you want to import any downloaded files? THIS IS A CONSIDERABLE TIME INVESTMENT! (Y/N): ");
     match input.trim() {
         "Y" | "y" => {
-            let num_workers = num_cpus::get() / 3;
+            let num_workers = num_cpus::get() / 2;
             // Create the mongo DB client we will use
             let client = Client::with_uri_str("mongodb://localhost:27017")
                 .expect("Error when creating database client!");
@@ -249,7 +249,7 @@ fn main() -> std::io::Result<()> {
 
             println!("Generating query...");
             let find_options = FindOptions::builder().projection(projection).build();
-            let signals = collection.find(query, find_options).unwrap();
+            let signals = collection.find(query).with_options(find_options).run().unwrap();
             // Create a new JSON Value to store unique signals
             let mut unique_signals = serde_json::Map::new();
 
