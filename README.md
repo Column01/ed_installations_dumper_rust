@@ -1,6 +1,6 @@
 # ED Installations Dumper Rust
 
-This is a proof of concept rewrite for my [Python program that does the same thing as this one](https://github.com/Column01/ED-Installations-Dumper). I'd prefer if you use the other one but use at your own risk :D (I do plan on supporting this one though too)
+This is a proof of concept rewrite for my [Python program that does the same thing as this one](https://github.com/Column01/ED-Installations-Dumper). I'd prefer if you use the other one but use at your own risk
 
 ## Install Pre-Requisites
 
